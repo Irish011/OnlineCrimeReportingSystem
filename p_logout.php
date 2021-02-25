@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-header("location:userlogin.php");
+header("location:policelogin.php");
 session_destroy();
-
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-header("location:userlogin.php");
+header("location:inchargelogin.php");
 session_destroy();
 
 ?>
