@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2021 at 08:58 AM
+-- Generation Time: Feb 25, 2021 at 02:03 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -45,8 +45,14 @@ CREATE TABLE `complaint` (
 
 INSERT INTO `complaint` (`c_id`, `a_no`, `location`, `type_crime`, `d_o_c`, `description`, `inc_status`, `pol_status`, `p_id`) VALUES
 (1, 874585215697, 'Rajkot', 'Pick Pocket', '2021-02-10', 'My wallet was Stolen near Railway Station', 'Assigned', 'In Process', 'a101'),
-(2, 987458748569, 'Ahmedabad', 'Theft', '2021-02-10', 'Someone broke into my house ', 'Unassigned', 'null', 'Null'),
-(3, 987458748569, 'Ahmedabad', 'Pick Pocket', '2021-02-01', 'Near Navrangpura BRTS Station', 'Assigned', 'In Process', 'j1');
+(2, 987458748569, 'Goa', 'Theft', '2021-02-10', 'Someone broke into my house ', 'Assigned', 'ChargeSheet Filed', 'j1'),
+(3, 987458748569, 'Ahmedabad', 'Pick Pocket', '2021-02-01', 'Near Navrangpura BRTS Station', 'Assigned', 'In Process', 'j1'),
+(8, 987458748569, 'Ahmedabad', 'Theft', '2021-02-09', 'help', 'Assigned', 'ChargeSheet Filed', 'p1'),
+(9, 987458748569, 'Ahmedabad', 'Pick Pocket', '2021-02-10', 'BRTS', 'Unassigned', 'null', 'Null'),
+(10, 987458748569, 'Ahmedabad', 'Molestation', '2021-02-10', 'helpp\r\n', 'Assigned', 'In Process', 'p1'),
+(32, 859674851223, 'Ahmedabad', 'Theft', '2021-02-11', 'help', 'Unassigned', 'null', 'Null'),
+(33, 859674851223, 'Ahmedabad', 'Theft', '2021-02-11', 'help', 'Unassigned', 'null', 'Null'),
+(34, 987458748569, 'Ahmedabad', 'Theft', '2021-02-11', 'help', 'Unassigned', 'null', 'Null');
 
 -- --------------------------------------------------------
 
@@ -87,8 +93,12 @@ CREATE TABLE `police` (
 INSERT INTO `police` (`p_name`, `p_id`, `spec`, `location`, `p_pass`) VALUES
 ('Manish Singh', 'a101', 'All', 'Rajkot', 'manish'),
 ('Jay Singh', 'a102', 'All', 'Isanpur', 'jay'),
+('dharam', 'd1', 'Narcotics', 'Goa', 'dharam'),
 ('harsh', 'h1', 'molestation', 'Goa', 'harsh'),
 ('jay', 'j1', 'molestation', 'Ahmedabad', 'jay'),
+('Monica', 'm1', 'All', 'Delhi', 'monica'),
+('piyush', 'p1', 'all', 'Ahmedabad', 'piyush'),
+('saurav', 's1', 'Rape', 'Rajkot', 'saurav'),
 ('Suvendu Doshi', 't101', 'Robbery', 'Delhi', 'suvendu');
 
 -- --------------------------------------------------------
@@ -134,7 +144,14 @@ CREATE TABLE `update_case` (
 INSERT INTO `update_case` (`c_id`, `d_o_u`, `case_update`) VALUES
 (1, '2021-02-11 07:41:40', 'Criminal Verified'),
 (3, '2021-02-11 07:48:22', 'Criminal Verified'),
-(3, '2021-02-11 07:48:30', 'Criminal Caught');
+(3, '2021-02-11 07:48:30', 'Criminal Caught'),
+(2, '2021-02-11 08:52:23', 'Criminal Verified'),
+(2, '2021-02-11 08:52:30', 'Criminal Charged'),
+(2, '2021-02-11 08:52:33', 'Close'),
+(8, '2021-02-11 17:11:42', 'Criminal Verified'),
+(8, '2021-02-11 17:11:50', 'Criminal Caught'),
+(8, '2021-02-11 17:12:35', 'Closed'),
+(10, '2021-02-12 08:46:37', 'Criminal Verified');
 
 -- --------------------------------------------------------
 
@@ -157,7 +174,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`u_name`, `u_id`, `u_pass`, `u_addr`, `a_no`, `gen`, `mob`) VALUES
-('Irish', 'irish@gmail.com', 'irish123', 'bopal', 789845651245, 'Male', 7898784560),
+('Irish', 'irishajaybharti11@gmail.com', 'irish123', 'bopal', 789845651245, 'Male', 7898784560),
+('Ravechi', 'rajaybharti23@gmail.com', 'ravechi23', 'Rajkot', 859674851223, 'Female', 8795465870),
 ('Nisarg', 'nisarg@hotmail.com', 'nisarg', 'rajkot', 874585215697, 'Male', 6785412589),
 ('Joey', 'Joey@gmail.com', 'joey123', 'NewYork', 878954782110, 'Male', 9875478120),
 ('Yashvi', 'yashvi@yahoo.com', 'yashvi123', 'navrangpura', 987458748569, 'Male', 8569745874);
@@ -207,7 +225,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
