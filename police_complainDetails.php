@@ -14,7 +14,7 @@
     mysqli_select_db($conn,"crime_portal");
     
     $cid=$_SESSION['cid'];
-    $p_id=isset($_SESSION['pol']);    
+    $p_id=$_SESSION['pol'];    
     
     $query="select c_id,type_crime,d_o_c,description,mob,u_addr from complaint natural join user where c_id='$cid' and p_id='$p_id'";
     $result=mysqli_query($conn,$query);  
