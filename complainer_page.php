@@ -2,6 +2,15 @@
 <html>
  
 <?php
+//NewMailer
+require 'includes/PHPMailer.php'; 
+require 'includes/Exception.php';
+require 'includes/SMTP.php';
+
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+//NewMailerEnd
 session_start();
     if(!isset($_SESSION['x']))
         header("location:userlogin.php");
@@ -64,7 +73,7 @@ if(isset($_POST['s'])){
         echo "<script type='text/javascript'>alert('$message1');</script>";
       }
       else
-      {
+      {/*OLD
           //$message = "Complaint Registered Successfully";
           //echo "<script type='text/javascript'>alert('$message');</script>";
 
@@ -82,7 +91,50 @@ if(isset($_POST['s'])){
             }else{
               echo "<script type='text/javascript'>alert('$messages2');</script>";
             }
-      }
+          */
+        
+        //NEW
+        $messages = "Complaint Registered Succeessfully and Details have been mailed to your Registered Email ID.";
+        $messages2 = "Failed";
+        
+        $mail = new PHPMailer();
+
+        $mail->isSMTP();
+
+        $mail->Host = "smtp.gmail.com";
+
+        $mail->SMTPAuth = "true";
+
+        $mail->SMTPSecure = "tls";
+
+        $mail->Port = "587";
+
+        $mail->Password = "complain123";
+        $mail->Username = "yourcomplainid@gmail.com";
+
+        $mail->Subject = "Online Complain Details";
+        
+        $mail->setFrom("yourcomplainid@gmail.com");
+
+        $mail->isHTML(true);
+        
+        $mail->Body = "<h1><u>Complaint Details</u></h1><br>
+                        <h4>Your complaint has been registered with us Successfully!</h4>
+                        <p>Your complaint ID is '$id'</p>";
+        
+        $mail->addAddress("rajaybharti23@gmail.com");
+        if($mail->Send()){
+        echo "<script type='text/javascript'>alert('$messages');</script>";
+      }else{
+          echo "<script type='text/javascript'>alert('$messages2');</script>";
+          
+        }
+    $mail->smtpClose();
+
+//NEWclose
+        
+        
+        }
     }
     else
     {
