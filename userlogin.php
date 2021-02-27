@@ -74,7 +74,7 @@ var x3=sta3.indexOf(' ');
 	<title>Complaint Login</title>
 </head>
 <body style="background-size: cover;
-    background-image: url(c3.jfif);
+    background-image: url(c3.jpg);
     background-position: center;">
 	<nav class="navbar navbar-default navbar-fixed-top" style="height: 60px;">
   <div class="container">
